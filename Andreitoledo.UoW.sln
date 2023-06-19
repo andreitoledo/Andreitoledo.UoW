@@ -3,9 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Api", "01.Api", "{6D054464-9422-4DFE-BDED-B1F22DF3C904}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Domain", "02.Domain", "{A5CA5070-20B4-44C7-8119-2A90769290EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Data", "03.Data", "{CD58490E-0C3E-4657-B09B-A6627A9FF80B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Domain", "src\Andreitoledo.UoW.Domain\Andreitoledo.UoW.Domain.csproj", "{CBADE6F8-3391-45BB-885F-0C0E0337BC57}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBADE6F8-3391-45BB-885F-0C0E0337BC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBADE6F8-3391-45BB-885F-0C0E0337BC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBADE6F8-3391-45BB-885F-0C0E0337BC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBADE6F8-3391-45BB-885F-0C0E0337BC57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBADE6F8-3391-45BB-885F-0C0E0337BC57} = {A5CA5070-20B4-44C7-8119-2A90769290EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3635E684-413C-4E73-AD1C-F194B3D973AF}
