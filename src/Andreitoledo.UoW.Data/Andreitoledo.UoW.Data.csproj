@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="FailedRepository\" />
-    <Folder Include="Mappings\" />
     <Folder Include="repositories\" />
   </ItemGroup>
 
