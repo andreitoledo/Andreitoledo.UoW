@@ -2,7 +2,7 @@
 
 namespace Andreitoledo.UoW.Domain
 {
-    internal class Voo : EntityBase
+    public class Voo : EntityBase
     {
 
         // toda vez que criar uma nova instancia de voo vai criar uma lista de pessoas
