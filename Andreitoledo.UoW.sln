@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Data", "src\Andreitoledo.UoW.Data\Andreitoledo.UoW.Data.csproj", "{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Api", "src\Andreitoledo.UoW.Api\Andreitoledo.UoW.Api.csproj", "{DA376D14-DF15-4ED9-BDB1-45479D4923DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA376D14-DF15-4ED9-BDB1-45479D4923DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA376D14-DF15-4ED9-BDB1-45479D4923DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA376D14-DF15-4ED9-BDB1-45479D4923DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA376D14-DF15-4ED9-BDB1-45479D4923DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CBADE6F8-3391-45BB-885F-0C0E0337BC57} = {A5CA5070-20B4-44C7-8119-2A90769290EB}
 		{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0} = {CD58490E-0C3E-4657-B09B-A6627A9FF80B}
+		{DA376D14-DF15-4ED9-BDB1-45479D4923DC} = {6D054464-9422-4DFE-BDED-B1F22DF3C904}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3635E684-413C-4E73-AD1C-F194B3D973AF}
