@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Andreitoledo.UoW.Api.Controllers.Mapper;
+using Andreitoledo.UoW.Data.FailedRepository;
+using Microsoft.OpenApi.Models;
 
 namespace Andreitoledo.UoW.Api
 {
@@ -13,6 +15,11 @@ namespace Andreitoledo.UoW.Api
 
         public void Configureservices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(AutoMapperConfig));
+
+            services.AddScoped<IPessoaFailedRepository, PessoaFailedRepository>();
+            services.AddScoped<IVooFailedRepository, VooFailedRepository>();
+
             services.AddControllers();
 
             services.AddSwaggerGen(c=>

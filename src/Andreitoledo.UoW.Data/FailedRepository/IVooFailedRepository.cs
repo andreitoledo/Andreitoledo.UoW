@@ -7,7 +7,7 @@ namespace Andreitoledo.UoW.Data.FailedRepository
 {
     public interface IVooFailedRepository
     {
-        Task AdicionarPassageiro(Guid? vooId);            
+        Task DecrementarVaga(Guid? vooId);            
     }    
 }
 
@@ -20,7 +20,7 @@ public class VooFailedRepository : IVooFailedRepository
         _context = context;
     }
 
-    public async Task AdicionarPassageiro(Guid? vooId)
+    public async Task DecrementarVaga(Guid? vooId)
     {
         if (vooId == null)
             throw new Exception("Id do Voo não pode ser nulo.");

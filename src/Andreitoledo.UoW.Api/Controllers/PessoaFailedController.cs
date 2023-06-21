@@ -1,5 +1,7 @@
 ﻿using Andreitoledo.UoW.Api.Controllers.Models;
 using Andreitoledo.UoW.Data.FailedRepository;
+using Andreitoledo.UoW.Domain;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Andreitoledo.UoW.Api.Controllers
@@ -8,17 +10,44 @@ namespace Andreitoledo.UoW.Api.Controllers
     [Route("api/Pessoafailed")]
     public class PessoaFailedController : Controller
     {
-        private readonly IPessoaFailedRepository _repo;
+        private readonly IPessoaFailedRepository _repoPessoa;
+        private readonly IVooFailedRepository _repoVoo;
+        private readonly IMapper _mapper;
 
-        public PessoaFailedController(IPessoaFailedRepository repo)
+        public PessoaFailedController(IPessoaFailedRepository repoPessoa,
+                                      IVooFailedRepository repoVoo,
+                                      IMapper mapper)
         {
-            _repo = repo;
+            _repoPessoa = repoPessoa;
+            _repoVoo = repoVoo;
+            _mapper = mapper;
         }
 
         [HttpPost("adicionar-passageiro")]
         public async Task<ActionResult<PessoaDTO>> AdicionarPassageiro(PessoaRequest pessoa)
         {
-            return Ok();
+            if(!ModelState.IsValid) return BadRequest("O modelo está inválido");
+
+            var pessoaModel = new Pessoa
+            {
+                Nome = pessoa.Nome,
+                VooId = pessoa.VooId
+            };
+
+            try
+            {
+                await _repoPessoa.AdicionarSeAoVoo(pessoaModel);
+                await _repoVoo.DecrementarVaga(pessoa.VooId);
+
+                return CreatedAtAction(nameof(AdicionarPassageiro), 
+                    _mapper.Map<PessoaDTO>(pessoaModel));
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);                
+            }
+            
         }
     }
 }
