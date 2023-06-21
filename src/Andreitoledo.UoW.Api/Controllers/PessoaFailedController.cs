@@ -1,10 +1,11 @@
-﻿using Andreitoledo.UoW.Data.FailedRepository;
+﻿using Andreitoledo.UoW.Api.Controllers.Models;
+using Andreitoledo.UoW.Data.FailedRepository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Andreitoledo.UoW.Api.Controllers
 {
     [ApiController]
-    [Route("api/Controller")]
+    [Route("api/Pessoafailed")]
     public class PessoaFailedController : Controller
     {
         private readonly IPessoaFailedRepository _repo;
@@ -14,8 +15,8 @@ namespace Andreitoledo.UoW.Api.Controllers
             _repo = repo;
         }
 
-        [HttpGet("pagina-inicial")]
-        public IActionResult Index()
+        [HttpPost("adicionar-passageiro")]
+        public async Task<ActionResult<PessoaDTO>> AdicionarPassageiro(PessoaRequest pessoa)
         {
             return Ok();
         }
