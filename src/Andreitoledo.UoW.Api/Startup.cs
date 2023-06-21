@@ -1,4 +1,6 @@
-﻿namespace Andreitoledo.UoW.Api
+﻿using Microsoft.OpenApi.Models;
+
+namespace Andreitoledo.UoW.Api
 {
     public class Startup
     {
@@ -12,6 +14,25 @@
         public void Configureservices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(c=>
+            c.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "UoW - Unit Of Work Pattern - API",
+                Description = "Esta API serve recursos do Sistema para testar o Unit Of Work Pattern",
+                Contact = new OpenApiContact()
+                {
+                    Name = "Andrei Toledo",
+                    Email = "altsystems@outlook.com.br",
+                    Url = new Uri("https://github.com/andreitoledo")
+                },
+                License = new OpenApiLicense()
+                {
+                    Name = "MIT",
+                    Url = new Uri("https://opensource.org/licenses/MIT")
+                }
+
+            }));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) 
@@ -20,6 +41,9 @@
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Unit Of Work v1"));
 
             app.UseHttpsRedirection();
             app.UseRouting();
