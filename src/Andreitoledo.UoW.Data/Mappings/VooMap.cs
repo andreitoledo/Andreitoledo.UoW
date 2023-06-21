@@ -12,7 +12,7 @@ namespace Andreitoledo.UoW.Data.Mappings
 
             builder.Property(x => x.Codigo)
                 .IsRequired()
-                .HasMaxLength(10)
+                .HasMaxLength(40)
                 .HasColumnType("varchar");
 
             builder.Property(x => x.Nota)
