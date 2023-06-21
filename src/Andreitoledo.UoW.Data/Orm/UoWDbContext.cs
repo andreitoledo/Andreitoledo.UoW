@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Andreitoledo.UoW.Data.Orm
 {
-    internal class UoWDbContext : DbContext
+    public class UoWDbContext : DbContext
     {
         public UoWDbContext() { }
 
