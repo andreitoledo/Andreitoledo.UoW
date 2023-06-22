@@ -1,4 +1,4 @@
-﻿using Andreitoledo.UoW.Api.Controllers.Models;
+﻿using Andreitoledo.UoW.Api.Models;
 using Andreitoledo.UoW.Domain;
 using AutoMapper;
 

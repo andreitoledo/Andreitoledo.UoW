@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Andreitoledo.UoW.Api.Controllers.Models
+namespace Andreitoledo.UoW.Api.Models
 {
     public class PessoaRequest
     {

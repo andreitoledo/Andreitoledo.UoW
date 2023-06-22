@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Domain", "02.Domain", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Data", "03.Data", "{CD58490E-0C3E-4657-B09B-A6627A9FF80B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Domain", "src\Andreitoledo.UoW.Domain\Andreitoledo.UoW.Domain.csproj", "{CBADE6F8-3391-45BB-885F-0C0E0337BC57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Andreitoledo.UoW.Domain", "src\Andreitoledo.UoW.Domain\Andreitoledo.UoW.Domain.csproj", "{CBADE6F8-3391-45BB-885F-0C0E0337BC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Data", "src\Andreitoledo.UoW.Data\Andreitoledo.UoW.Data.csproj", "{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Andreitoledo.UoW.Data", "src\Andreitoledo.UoW.Data\Andreitoledo.UoW.Data.csproj", "{95350AD7-DA7A-4AC7-8FA0-CC494BC58BA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Andreitoledo.UoW.Api", "src\Andreitoledo.UoW.Api\Andreitoledo.UoW.Api.csproj", "{DA376D14-DF15-4ED9-BDB1-45479D4923DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Andreitoledo.UoW.Api", "src\Andreitoledo.UoW.Api\Andreitoledo.UoW.Api.csproj", "{DA376D14-DF15-4ED9-BDB1-45479D4923DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
