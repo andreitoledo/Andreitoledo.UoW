@@ -22,9 +22,9 @@ namespace Andreitoledo.UoW.Api
             services.AddScoped<IPessoaFailedRepository, PessoaFailedRepository>();
             services.AddScoped<IVooFailedRepository, VooFailedRepository>();
 
-            services.AddDbContext<UoWDbContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                });
+            services.AddDbContext<UoWDbContext>(options => 
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
 
