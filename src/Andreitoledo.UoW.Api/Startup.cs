@@ -36,7 +36,7 @@ namespace Andreitoledo.UoW.Api
             // configura a injeção de dependencia do contexto UoWDbContext
             //services.AddControllersWithViews();
             //services.AddEntityFrameworkSqlServer()
-              //  .AddDbContext<UoWDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //    .AddDbContext<UoWDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddControllers();
