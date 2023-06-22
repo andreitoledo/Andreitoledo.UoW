@@ -4,6 +4,13 @@ using Andreitoledo.UoW.Data.Orm;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+
 namespace Andreitoledo.UoW.Api
 {
     public class Startup
@@ -23,12 +30,14 @@ namespace Andreitoledo.UoW.Api
             services.AddScoped<IVooFailedRepository, VooFailedRepository>();
 
             services.AddDbContext<UoWDbContext>(options =>
-            {
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"));
-            });
-        
-                
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            // configura a injeção de dependencia do contexto UoWDbContext
+            //services.AddControllersWithViews();
+            //services.AddEntityFrameworkSqlServer()
+              //  .AddDbContext<UoWDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
             services.AddControllers();
 

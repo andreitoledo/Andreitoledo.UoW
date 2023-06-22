@@ -15,7 +15,7 @@ namespace Andreitoledo.UoW.Data.Orm
         public UoWDbContext(DbContextOptions<UoWDbContext> options) 
             : base(options) { }
 
-        public DbSet<Pessoa>? Pessoas { get; set; }
+        public DbSet<Pessoa>? Pessoa { get; set; }
         public DbSet<Voo> Voo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,8 +33,7 @@ namespace Andreitoledo.UoW.Data.Orm
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UoWDbContext).Assembly);
 
             // Todo: remover exclusão em cascata
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) 
-                relationship.DeleteBehavior = DeleteBehavior.ClientNoAction;
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientNoAction;
 
 
             base.OnModelCreating(modelBuilder);
