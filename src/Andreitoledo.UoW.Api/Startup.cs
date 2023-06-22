@@ -1,5 +1,7 @@
 ﻿using Andreitoledo.UoW.Api.Controllers.Mapper;
 using Andreitoledo.UoW.Data.FailedRepository;
+using Andreitoledo.UoW.Data.Orm;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 namespace Andreitoledo.UoW.Api
@@ -19,6 +21,10 @@ namespace Andreitoledo.UoW.Api
 
             services.AddScoped<IPessoaFailedRepository, PessoaFailedRepository>();
             services.AddScoped<IVooFailedRepository, VooFailedRepository>();
+
+            services.AddDbContext<UoWDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                });
 
             services.AddControllers();
 
