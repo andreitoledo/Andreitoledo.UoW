@@ -10,6 +10,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Andreitoledo.UoW.Data.repositories.Abstraction;
+using Andreitoledo.UoW.Data.repositories.Implementations;
 
 namespace Andreitoledo.UoW.Api
 {
@@ -29,15 +31,12 @@ namespace Andreitoledo.UoW.Api
             services.AddScoped<IPessoaFailedRepository, PessoaFailedRepository>();
             services.AddScoped<IVooFailedRepository, VooFailedRepository>();
 
+            services.AddScoped<IPessoaRepository, PessoaRepository>();
+            services.AddScoped<IVooRepository, VooRepository>();
+
             services.AddDbContext<UoWDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            // configura a injeção de dependencia do contexto UoWDbContext
-            //services.AddControllersWithViews();
-            //services.AddEntityFrameworkSqlServer()
-            //    .AddDbContext<UoWDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
 
             services.AddControllers();
 
