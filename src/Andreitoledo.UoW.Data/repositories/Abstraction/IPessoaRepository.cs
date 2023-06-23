@@ -10,6 +10,6 @@ namespace Andreitoledo.UoW.Data.repositories.Abstraction
     public interface IPessoaRepository : IUnitOfWork
     {
         Task AdicionarSeAoVoo(Pessoa pessoa);
-        Task ExcluirPessoaDoVoo(Guid vooId);
+        Task ExcluirPessoasDoVoo(Guid vooId);
     }
 }
