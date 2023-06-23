@@ -9,7 +9,7 @@ namespace Andreitoledo.UoW.Data.repositories.Abstraction
         Task UpdateVoo(Voo voo);
         Task<Voo> SelecionarPorId(Guid? id);
         Task<IEnumerable<Voo>> SelecionarTodos(Expression<Func<Voo, bool>> quando = null);
-        Task Criar(Voo voo);
+        Task CriarVoo(Voo voo);
 
     }
 }

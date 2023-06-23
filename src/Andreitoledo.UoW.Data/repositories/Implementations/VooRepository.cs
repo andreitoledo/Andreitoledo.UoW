@@ -16,7 +16,7 @@ namespace Andreitoledo.UoW.Data.repositories.Implementations
             _context = context;
         }
 
-        public async Task Criar(Voo voo)
+        public async Task CriarVoo(Voo voo)
         {
             var vooExistente = await _context.Set<Voo>().FindAsync(voo.Id);
             if (vooExistente == null)
