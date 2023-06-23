@@ -24,7 +24,9 @@ namespace Andreitoledo.UoW.Api.Controllers
         }
 
         [HttpPost("adicionar-passageiro")]
-        public async Task<ActionResult<PessoaDTO>> AdicionarPassageiro(PessoaRequest pessoa)
+        [ProducesResponseType(typeof(PessoaDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> AdicionarPassageiro(PessoaRequest pessoa)
         {
             if(!ModelState.IsValid) return BadRequest("O modelo está inválido");
 
@@ -38,7 +40,7 @@ namespace Andreitoledo.UoW.Api.Controllers
             {
                 await _repoPessoa.AdicionarSeAoVoo(pessoaModel);
                 await _repoVoo.DecrementarVaga(pessoa.VooId);
-
+                                
                 return CreatedAtAction(nameof(AdicionarPassageiro), 
                     _mapper.Map<PessoaDTO>(pessoaModel));
 
