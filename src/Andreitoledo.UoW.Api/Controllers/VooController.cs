@@ -1,8 +1,10 @@
-﻿using Andreitoledo.UoW.Api.Models;
+﻿using Andreitoledo.UoW.Api.Configurations.Settings;
+using Andreitoledo.UoW.Api.Models;
 using Andreitoledo.UoW.Data.repositories.Abstraction;
 using Andreitoledo.UoW.Domain;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace Andreitoledo.UoW.Api.Controllers
 {
@@ -10,17 +12,20 @@ namespace Andreitoledo.UoW.Api.Controllers
     [Route("api/voo")]
     public class VooController : Controller
     {        
+        private readonly VooSettings _settings;
         private readonly IVooRepository _vooRepository;
         private readonly IPessoaRepository _pessoaRepository;
         private readonly IMapper _mapper;
 
-        public VooController(IVooRepository vooRepository, 
-                             IPessoaRepository pessoaRepository, 
-                             IMapper mapper)
+        public VooController(IVooRepository vooRepository,
+                             IPessoaRepository pessoaRepository,
+                             IMapper mapper,
+                             IOptions<VooSettings> settings)
         {
             _vooRepository = vooRepository;
             _pessoaRepository = pessoaRepository;
             _mapper = mapper;
+            _settings = settings.Value;
         }
 
         [HttpGet("listar-voo")]
@@ -46,8 +51,8 @@ namespace Andreitoledo.UoW.Api.Controllers
                     Id = id,
                     Capacidade = 4,
                     Disponibilidade = 4,
-                    Codigo = "101 - São Paulo/Los Angeles",
-                    Nota = "Saída as 10:43h. - Horário de Brasilia"
+                    Codigo = "101 - Sao Paulo/Los Angeles",
+                    Nota = "Saida as 10:43h. - Horario de Brasilia"
                 };
 
                 await _vooRepository.CriarVoo(_mapper.Map<Voo>(vooDTO));
@@ -78,7 +83,7 @@ namespace Andreitoledo.UoW.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest("Modelo Inválido");
 
-            vooDto.Id = Guid.Parse("C05ACEB7-1667-4D8F-BD9E-400984609721");
+            vooDto.Id = _settings.Id;
 
             try
             {

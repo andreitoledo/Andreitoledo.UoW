@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Andreitoledo.UoW.Data.repositories.Abstraction;
 using Andreitoledo.UoW.Data.repositories.Implementations;
+using Andreitoledo.UoW.Api.Configurations.Settings;
+using Microsoft.Extensions.Options;
 
 namespace Andreitoledo.UoW.Api
 {
@@ -58,6 +60,9 @@ namespace Andreitoledo.UoW.Api
                 }
 
             }));
+                        
+            services.Configure<VooSettings>(Configuration.GetSection(VooSettings.SessionName));
+            services.AddSingleton(s => s.GetRequiredService<IOptions<VooSettings>>().Value);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) 
