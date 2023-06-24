@@ -83,11 +83,7 @@ namespace Andreitoledo.UoW.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest("Modelo Inválido");
 
-            vooDto.Id = _settings.Id;
-            vooDto.Codigo = _settings.Codigo;
-            vooDto.Nota = _settings.Nota;
-            vooDto.Capacidade = _settings.Capacidade;
-            vooDto.Disponibilidade = _settings.Disponibilidade;
+            vooDto.Id = _settings.Id;            
 
             try
             {
