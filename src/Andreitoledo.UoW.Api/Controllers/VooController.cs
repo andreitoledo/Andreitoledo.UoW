@@ -23,6 +23,14 @@ namespace Andreitoledo.UoW.Api.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet("listar-voo")]
+        public async Task<IEnumerable<Voo>> Get()
+        {
+            return await _vooRepository.SelecionarTodos();
+
+        }
+
+
         [HttpGet("resetar-voo")]
         [ProducesResponseType(typeof(Voo), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -61,6 +69,28 @@ namespace Andreitoledo.UoW.Api.Controllers
             transacao = await _vooRepository.Commit();
             return Ok(voo);           
                 
+        }
+
+        [HttpPost("criar-voo-dto")]
+        [ProducesResponseType(typeof(Voo), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CriarVooDTO(VooDTO vooDto)
+        {
+            if (!ModelState.IsValid) return BadRequest("Modelo Inválido");
+
+            vooDto.Id = Guid.Parse("C05ACEB7-1667-4D8F-BD9E-400984609721");
+
+            try
+            {
+                await _vooRepository.CriarVoo(_mapper.Map<Voo>(vooDto));
+                var transacao = await _vooRepository.Commit();
+                return CreatedAtAction(nameof(CriarVooDTO), vooDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
 
