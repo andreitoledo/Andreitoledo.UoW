@@ -84,6 +84,10 @@ namespace Andreitoledo.UoW.Api.Controllers
             if (!ModelState.IsValid) return BadRequest("Modelo Inválido");
 
             vooDto.Id = _settings.Id;
+            vooDto.Codigo = _settings.Codigo;
+            vooDto.Nota = _settings.Nota;
+            vooDto.Capacidade = _settings.Capacidade;
+            vooDto.Disponibilidade = _settings.Disponibilidade;
 
             try
             {
@@ -95,9 +99,35 @@ namespace Andreitoledo.UoW.Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
 
+        [HttpPost("criar-voo-appsettings")]
+        [ProducesResponseType(typeof(Voo), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CriarVooAppSettings()
+        {
+            var voo = new Voo()
+            {
+                Id = _settings.Id,
+                Codigo = _settings.Codigo,
+                Nota = _settings.Nota,
+                Capacidade = _settings.Capacidade,
+                Disponibilidade = _settings.Disponibilidade,
+                Pessoas = new List<Pessoa>()
+            };
+
+            try
+            {
+                await _vooRepository.CriarVoo(voo);
+                var transacao = await _vooRepository.Commit();
+
+                return CreatedAtAction(nameof(CriarVooAppSettings), voo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }

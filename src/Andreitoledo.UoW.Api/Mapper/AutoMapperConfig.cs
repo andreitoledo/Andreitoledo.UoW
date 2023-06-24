@@ -9,6 +9,7 @@ namespace Andreitoledo.UoW.Api.Controllers.Mapper
         public AutoMapperConfig()
         {
             CreateMap<Pessoa, PessoaDTO>().ReverseMap();
+            CreateMap<Voo, VooDTO>().ReverseMap();
         }
     }
 }
